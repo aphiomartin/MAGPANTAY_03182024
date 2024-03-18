@@ -16,12 +16,28 @@ namespace ItemCatalogue.Api.Infrastructure.Data.Repositories
 
         public async Task<List<Catalogue>> GetAllAsync()
         {
-            return await _appDbContext.Catalogues.ToListAsync();
+            var catalogues = await _appDbContext.Catalogues.ToListAsync();
+
+            return catalogues;
         }
 
         public async Task<Catalogue?> GetByIdAsync(int id)
         {
-            return await _appDbContext.Catalogues.FirstOrDefaultAsync(c => c.Id == id);
+            var catalogue = await _appDbContext.Catalogues.FirstOrDefaultAsync(c => c.Id == id);
+
+            return catalogue;
+        }
+
+        public async Task<int> AddAsync(Catalogue catalogue)
+        {
+            await _appDbContext.Catalogues.AddAsync(catalogue);
+
+            return catalogue.Id;
+        }
+
+        public void Update(Catalogue catalogue)
+        {
+            _appDbContext.Catalogues.Update(catalogue);
         }
     }
 }

@@ -10,12 +10,12 @@ namespace ItemCatalogue.Api.Domain.Models
 
         }
 
-        public long Id { get; private set; }
+        public int Id { get; private set; }
         public string Name { get; private set; } = null!;
         public string Description { get; private set; } = null!;
         public CatalogueCategory Category { get; private set; }
 
-        public Catalogue Create(long id, string name, string description, CatalogueCategory category)
+        public static Catalogue Create(int id, string name, string description, CatalogueCategory category)
         {
             if (category == default)
             {

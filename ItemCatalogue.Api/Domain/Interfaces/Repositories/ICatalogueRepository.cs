@@ -6,5 +6,7 @@ namespace ItemCatalogue.Api.Domain.Interfaces.Repositories
     {
         Task<List<Catalogue>> GetAllAsync();
         Task<Catalogue?> GetByIdAsync(int id);
+        Task<int> AddAsync(Catalogue catalogue);
+        void Update(Catalogue catalogue);
     }
 }

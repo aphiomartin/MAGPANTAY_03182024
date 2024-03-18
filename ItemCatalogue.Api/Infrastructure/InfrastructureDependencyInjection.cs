@@ -2,11 +2,11 @@
 using ItemCatalogue.Api.Infrastructure.Data.Context;
 using Microsoft.EntityFrameworkCore;
 
-namespace ItemCatalogue.Api.Infrastructure.Data
+namespace ItemCatalogue.Api.Infrastructure
 {
     public static class InfrastructureDependencyInjection
     {
-        public static IServiceCollection AddInfrastructure(this IServiceCollection services)
+        public static IServiceCollection AddInfrastructureServices(this IServiceCollection services)
         {
             services.AddDbContext<AppDbContext>(options =>
                             options.UseInMemoryDatabase(databaseName: "ItemCatalogue"));
